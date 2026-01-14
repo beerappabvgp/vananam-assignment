@@ -139,3 +139,4 @@ The endpoint returns JSON data in a format similar to JSON Placeholder API:
 
 This project is created for a coding assignment.
 # Test commit to trigger CI
+
