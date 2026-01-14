@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+// Test CI trigger - small change to verify pipeline
+
 const (
 	// Endpoint is the API endpoint to fetch data from
 	// Using JSON Placeholder style endpoint structure
