@@ -104,7 +104,7 @@ The project includes a GitHub Actions workflow that:
 - Fails the build if tests fail
 - Shows test coverage
 
-![CI Status](https://github.com/bharath/go-http-client/actions/workflows/ci.yml/badge.svg)
+![CI Status](https://github.com/beerappabvgp/vananam-assignment/actions/workflows/ci.yml/badge.svg)
 
 ## Requirements Met
 
