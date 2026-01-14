@@ -10,8 +10,8 @@ import (
 
 const (
 	// Endpoint is the API endpoint to fetch data from
-	// Using JSON Placeholder style endpoint structure
-	Endpoint = "http://example.com/cities/Bangalore"
+	// Using JSON Placeholder API to get all posts
+	Endpoint = "https://jsonplaceholder.typicode.com/posts"
 )
 
 // HTTPClient defines the interface for HTTP operations.
