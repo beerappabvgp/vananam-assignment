@@ -10,7 +10,6 @@ import (
 	"github.com/therewardstore/httpmatter"
 )
 
-// mockHTTPClient is a mock implementation of HTTPClient for testing.
 type mockHTTPClient struct {
 	doFunc func(url string) (*http.Response, error)
 }
@@ -20,7 +19,6 @@ func (m *mockHTTPClient) Get(url string) (*http.Response, error) {
 }
 
 func TestFetchData(t *testing.T) {
-	// Initialize httpmatter to ensure HTTP calls are mocked
 	httpmatter.Init(&httpmatter.Config{})
 	_ = httpmatter.NewHTTP(t)
 
@@ -39,7 +37,6 @@ func TestFetchData(t *testing.T) {
 						if url != Endpoint {
 							t.Errorf("expected URL %s, got %s", Endpoint, url)
 						}
-						// JSON Placeholder API response format - array of posts
 						jsonResponse := `[
 							{
 								"userId": 1,
@@ -76,7 +73,6 @@ func TestFetchData(t *testing.T) {
 				if !strings.Contains(bodyStr, "title") {
 					t.Errorf("expected response to contain 'title', got: %s", bodyStr)
 				}
-				// Verify it's an array (starts with [)
 				if !strings.HasPrefix(strings.TrimSpace(bodyStr), "[") {
 					t.Errorf("expected array response, got: %s", bodyStr[:50])
 				}
@@ -187,7 +183,7 @@ func TestFetchData(t *testing.T) {
 					},
 				}
 			},
-			wantErr: false, // We just return the body, parsing is not our responsibility
+			wantErr: false,
 			validate: func(t *testing.T, body []byte) {
 				if len(body) == 0 {
 					t.Error("expected non-empty response body")
@@ -386,7 +382,6 @@ func TestNewDefaultClient(t *testing.T) {
 	}
 }
 
-// errorReader is a reader that always returns an error
 type errorReader struct{}
 
 func (e *errorReader) Read(p []byte) (n int, err error) {
