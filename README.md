@@ -19,12 +19,17 @@ go-http-client/
 ├── go.mod
 ├── go.sum
 ├── README.md
+├── Dockerfile
+├── .dockerignore
 ├── .gitignore
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
-├── client.go          # Main implementation
-└── client_test.go     # Unit tests
+├── client.go
+├── client_test.go
+└── cmd/
+    └── http-client/
+        └── main.go
 ```
 
 ## Installation
@@ -95,6 +100,22 @@ The tests cover:
 - ✅ Response processing
 
 All HTTP calls are mocked using `httpmatter`, ensuring no real network calls are made during testing.
+
+## Docker
+
+### Build the Docker image
+
+```bash
+docker build -t go-http-client .
+```
+
+### Run the container
+
+```bash
+docker run --rm go-http-client
+```
+
+The container will fetch data from the JSON Placeholder API and display the response.
 
 ## CI/CD
 
