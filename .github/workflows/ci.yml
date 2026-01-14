@@ -33,7 +33,26 @@ jobs:
       run: go mod tidy
     
     - name: Run tests
-      run: go test ./...
+      run: go test -v ./...
     
     - name: Run tests with coverage
-      run: go test -cover ./...
+      run: go test -v -cover ./...
+    
+    - name: Test Results Summary
+      if: always()
+      run: |
+        echo "=========================================="
+        echo "TEST EXECUTION SUMMARY"
+        echo "=========================================="
+        if go test ./... > /tmp/test_output.txt 2>&1; then
+          echo "✅ ALL TESTS PASSED"
+          echo ""
+          echo "Test Coverage:"
+          go test -cover ./... | grep coverage
+        else
+          echo "❌ TESTS FAILED"
+          echo ""
+          cat /tmp/test_output.txt
+          exit 1
+        fi
+        echo "=========================================="
